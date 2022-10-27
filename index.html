@@ -15,11 +15,14 @@
     </style>
 </head>
 <body>
-    <button class="text-white">Click Me</button>
-    <button>Click Me</button>
-    <button>Click Me</button>
-    <button>Click Me</button>
-    <button>Click Me</button>
+    <form onsubmit="validate(event)" name="loginform">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" required name="name" id="name">
+            <span id="error-name" style="color: red;display:block;"></span>
+        </div>
+        <button type="submit">Save</button>
+    </form>
     <script src="assets/scripts/main.js"></script>
 </body>
 </html>
