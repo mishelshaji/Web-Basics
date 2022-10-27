@@ -1,2 +1,6 @@
-document.getElementById('p1').innerText = "<b>Paragraph 1</b>";
-document.getElementById('p2').innerHTML = "<b>Paragraph 2</b>";
+var elements = document.getElementsByTagName('button');
+console.log(elements);
+
+for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundColor = 'tomato';
+}
