@@ -1,4 +1,8 @@
-var tag = document.getElementById('main');
-console.log(tag.parentElement);
-tag.parentElement.style.backgroundColor = 'teal';
-// console.log(tag.innerText);
+document.write("<h1>hello</h1>");
+document.write(`
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+`);
