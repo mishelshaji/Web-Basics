@@ -1,9 +1,9 @@
-var target = document.getElementById('square');
+document.querySelectorAll('button').forEach(e=>{
+    e.addEventListener('click', ()=>{
+        console.log("Button clicked");
+    })
+})
 
-function btnShow(){
-    target.style.display = 'block';
-}
-
-function btnHide(){
-    target.style.display = 'none';
-}
+// function btnClicked() { 
+//     console.log("Button clicked");
+// }
