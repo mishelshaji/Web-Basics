@@ -1,6 +1,5 @@
-var elements = document.getElementsByTagName('button');
-console.log(elements);
+var qs = document.querySelectorAll('div>button');
 
-for (let i = 0; i < elements.length; i++) {
-    elements[i].style.backgroundColor = 'tomato';
-}
+qs.forEach(e=>{
+    e.style.backgroundColor = 'tomato';
+})
