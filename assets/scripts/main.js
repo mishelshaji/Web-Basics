@@ -1,8 +1,2 @@
-document.write("<h1>hello</h1>");
-document.write(`
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-</ul>
-`);
+document.getElementById('p1').innerText = "<b>Paragraph 1</b>";
+document.getElementById('p2').innerHTML = "<b>Paragraph 2</b>";
