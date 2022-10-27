@@ -1,7 +1,6 @@
 document.querySelectorAll('button').forEach(e=>{
-    e.addEventListener('click', ()=>{
-        console.log("Button clicked");
-    })
+    e.classList.add('bg-primary');
+    e.classList.remove('text-white');
 })
 
 // function btnClicked() { 
