@@ -1,7 +1,4 @@
-function btnClick(){
-    alert("Button clicked");
-}
-
-function btnMouseOver(){
-    alert("Mouse over the button");
+function btnClick(e){
+    console.log(e);
+    e.target.innerText = "Clicked";
 }
