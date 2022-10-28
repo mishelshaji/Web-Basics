@@ -63,6 +63,10 @@
                         <label>Password</label>
                         <input type="password" name="password" class="form-control"  minlength="8" maxlength="25" required>
                     </div>
+                    <div>
+                        <label>Confirm Password</label>
+                        <input type="password" name="cpassword" class="form-control"  minlength="8" maxlength="25" required>
+                    </div>
                     <div class="d-grid mt-4">
                         <button class="btn btn-primary shadow" id="btn-login">Login</button>
                     </div>
@@ -114,17 +118,27 @@
     <script>
         var email = document.forms['loginform']['email'];
         var password = document.forms['loginform']['password'];
+        var cpassword = document.forms['loginform']['cpassword'];
         var btn = document.getElementById('btn-login');
 
         function validate(e){
             e.preventDefault();
-            
         }
 
         document.querySelectorAll('#loginform input').forEach(e=>{
             e.addEventListener('keyup', function(event){
+                var isValid = true;
                 if(!email.validity.valid || !password.validity.valid){
-                    btn.setAttribute('disabled', true);
+                    isValid = false;
+                }
+
+                if(password.value != cpassword.value){
+                    isValid = false;
+                    console.log('invalid password')
+                }
+
+                if(!isValid){
+                    btn.setAttribute('disabled', true)
                 }
                 else{
                     btn.removeAttribute('disabled');
