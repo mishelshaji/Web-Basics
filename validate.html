@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert-danger{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" minlength="5" maxlength="50" required>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" minlength="8" maxlength="25" required>
+        </div>
+        <div class="alert-danger" id="error-messages"></div>
+        <button type="submit" onclick="return validate();">Login</button>
+    </form>
+
+    <script>
+        function validate(e){
+            var email = document.forms[0]['email'];
+            var password = document.forms[0]['password'];
+            var error = document.getElementById('error-messages');
+            if(!email.validity.valid){
+                error.innerHTML = 'Please enter a valid email';
+                return false;
+            }
+            if(!password.validity.valid){
+                error.innerHTML = 'Please enter a valid password';
+                return false;
+            }
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>

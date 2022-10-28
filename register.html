@@ -8,33 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <div class="container">
+              <div class="container">
                 <a class="navbar-brand" href="#">My Site</a>
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-current="page">Home <span
-                                    class="visually-hidden">(current)</span></a>
+                            <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="#">Action 1</a>
                                 <a class="dropdown-item" href="#">Action 2</a>
@@ -46,26 +42,36 @@
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
-            </div>
+          </div>
         </nav>
     </header>
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <select class="form-select">
-                        <option value="1">Location 1</option>
-                        <option value="2">Location 1</option>
-                        <option value="3">Location 1</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <select class="form-select">
-                        <option value="1">Location 1</option>
-                        <option value="2">Location 1</option>
-                        <option value="3">Location 1</option>
-                    </select>
-                </div>
+    <div class="container-fluid mb-5">
+        <div class="py-5">
+            <h1 class="text-center">Register</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <form method="post">
+                    <div>
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="me@example.com">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div>
+                        <label for="c-password">Confirm Password</label>
+                        <input type="password" class="form-control" id="c-password" name="c-password">
+                    </div>
+                    <div class="mt-3 d-grid">
+                        <button type="submit" class="btn btn-primary btn-fluid">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -74,8 +80,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h4>About Us</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iusto illum omnis natus sunt minus,
-                        .</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iusto illum omnis natus sunt minus, .</p>
                 </div>
                 <div class="col-sm-4">
                     <h4>Pages</h4>
@@ -103,10 +108,10 @@
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
