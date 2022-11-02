@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .avatar {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <br>
+    <button class="btn btn-primary" onclick="getData();">Get Data</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Id</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody id="users">
+
+        </tbody>
+    </table>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script>
+        function getData() {
+            var tbody = document.getElementById("users");
+
+
+            // var http = new XMLHttpRequest();
+            // http.onreadystatechange = function(){
+            //     if (this.readyState == 4 && this.status == 200){
+            //         var data = this.responseText;
+            //         var jsonData = JSON.parse(data);
+
+            //         jsonData.data.forEach(function(user){
+            //             var row = `
+            //             <tr>
+            //                 <td>
+            //                     <img src="${user.avatar}" class="avatar">
+            //                 </td>
+            //                 <td>${user.id}</td>
+            //                 <td>${user.email}</td>
+            //                 <td>${user.first_name}</td>
+            //                 <td>${user.last_name}</td>
+            //             </tr>`;
+            //             tbody.innerHTML += row;
+            //         });
+            //     }
+            // }
+            // http.open('GET', 'https://reqres.in/api/users');
+            // http.send();
+
+            fetch('https://reqres.in/api/users')
+                .then(response => response.json())
+                .then(json => {
+                    json.data.forEach(function (user) {
+                        var row = `
+                        <tr>
+                            <td>
+                                <img src="${user.avatar}" class="avatar">
+                            </td>
+                            <td>${user.id}</td>
+                            <td>${user.email}</td>
+                            <td>${user.first_name}</td>
+                            <td>${user.last_name}</td>
+                        </tr>`;
+                        tbody.innerHTML += row;
+                    });
+                });
+        }
+    </script>
+</body>
+
+</html>
