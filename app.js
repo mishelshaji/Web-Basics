@@ -1,76 +1,75 @@
-var response = null;
-var tbody = document.getElementById('table-data');
-var selectedPage = 1;
-var hasLoadedPagination = false;
+const read = require('readline-sync')
+const fs = require('fs')
 
-getData();
+while (true) {
+    console.log("1. Add User");
+    console.log("2. Update User");
+    console.log("3. Delete User");
+    console.log("4. Search User");
+    console.log("5. Exit");
 
-function getData(){
-    fetch('https://reqres.in/api/users?page='+selectedPage)
-    .then(res=>res.json())
-    .then(data => {
-        showData(data);
-        if(!hasLoadedPagination){
-            showPagination();
-            hasLoadedPagination = true;
-        }
-    })
+    let option = read.question('Please select an option: ');
+    switch (option) {
+        case "1":
+            addUser();
+            break;
+        case "2":
+            updateUser();
+            break;
+        case "3":
+            console.log("Delete User Selected");
+            break;
+        case "4":
+            console.log("Search User Selected");
+            break;
+        case "5":
+            process.exit(0);
+            break;
+        default:
+            console.log("Invalid option");
+    }
 }
 
-function showData(json){
-    console.log(json);
-    response = json;
+function updateUser() {
+    let userName = read.question('Enter the username: ');
+    var fileName = getFileName(userName);
 
-    // for (let i = 0; i < json.data.length; i++) {
-    //     const user = json.data[i];
-    //     console.log(user.email);
-    // }
-    tbody.innerHTML = "";
-    json.data.forEach(user =>{
-        console.log(user.email);
-        var row = `
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.first_name}</td>
-                <td>${user.last_name}</td>
-                <td>${user.email}</td>
-            </tr>
-        `;
-        tbody.innerHTML += row;
-    });
+    var userText = fs.readFileSync(fileName, 'utf8');
+    var user = JSON.parse(userText);
+
+    console.log("Enter the details or leave it blank");
+    let name = read.question("Name: ");
+    let email = read.question("Email: ");
+    let phone = read.question("Phone: ");
+
+    user.name = name == "" ? user.name : name;
+    user.email = email == "" ? user.email : email;
+    user.phone = phone == "" ? user.phone : phone;
+
+    fs.writeFileSync(fileName, JSON.stringify(user));
+    console.log("User updated successfully 👍");
 }
 
-function showPagination() {
-    var pages = document.getElementById('pages');
-    pages.innerHTML += `
-        <li class="page-item">
-            <a class="page-link" href="#" onclick="return navPrevNext('p')">Previous</a>
-        </li>
-        `;
-
-    for (let i = 1; i <= response.total_pages; i++) {
-        pages.innerHTML += `
-            <li class="page-item">
-                <a class="page-link" href="#">${i}</a>
-            </li>
-        `;
-    }
-
-    pages.innerHTML += `
-        <li class="page-item">
-            <a class="page-link" href="#" onclick="return navPrevNext('n')">Next</a>
-        </li>
-        `;
-
-}
-
-function navPrevNext(option){
-    if(option == 'p'){
-        selectedPage--;
-    }
-    else{
-        selectedPage++;
-    }
+function addUser() {
+    console.log("Add User Selected");
+    var user = {
+        name: null,
+        username: null,
+        email: null,
+        phone: null
+    };
+    user.name = read.question("Name: ");
+    user.username = read.question("Username: ")
+        .toLowerCase();
+    user.email = read.question("Email: ");
+    user.phone = read.question("Phone: ");
     
-    getData();
+    let fileName = getFileName(user.username);
+    var json = JSON.stringify(user);
+    fs.writeFileSync(fileName, json);
+}
+
+
+function getFileName(userName){
+    return `data/${userName}.json`;
 }
